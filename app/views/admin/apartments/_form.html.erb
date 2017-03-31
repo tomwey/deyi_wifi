@@ -1,0 +1,10 @@
+<%= semantic_form_for [:admin, @apartment], builder: ActiveAdmin::FormBuilder, html: { multipart: true } do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :images, as: :file, input_html: { multiple: true } %>
+    <%= f.input :name %>
+  <% end %>
+  <%= f.inputs '户型' do %>
+    <%= f.input :room_num, label: '几室' %>
+  <% end %>
+  <%= f.actions %>
+<% end %>

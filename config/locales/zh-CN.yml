@@ -1,0 +1,373 @@
+"zh-CN":
+  common:
+    super_admin: '管理员'
+    admin: '管理员'
+    site_editor: '站点编辑'
+    marketer: '市场人员'
+    pending: '待处理'
+    paid: '待配送'
+    shipping: '配送中'
+    canceled: '已取消'
+    completed: '已完成'
+    processing: '处理中'
+    channel: '联盟任务收益'
+    checkin: '签到收益'
+    follow_task: '关注收益'
+    share_task: '分享收益'
+    ad_task: '浏览广告收益'
+    invite_earn: '收徒收益'
+  activerecord:
+    models:
+      user: "用户"
+      admin: "管理员"
+      cpanel: '后台系统' # 此处并不存在真正意义的model，只是为了后台系统的面包屑导航根地址国际化成中文
+      access_point: 'WIFI热点'
+      category: "类别"
+      banner: "广告"
+      site_config: "站点配置"
+      feedback: "意见反馈"
+      search: '搜索记录'
+      page: '文档'
+      payout: '提现'
+      pay_history: '交易明细'
+      checkin: '签到'
+      earn_log: '收益明细'
+      app_type: 'APP类型'
+      app_version: 'App版本'
+      product: '产品'
+      node: '产品类别'
+      stock: '产品库存'
+      product_mode: '产品模式'
+      user_input_config: '产品模式配置'
+      merchant: '供应商'
+      shipment: '收货地址'
+      order: '订单'
+      channel: '积分墙渠道'
+      ad_task: '商家广告'
+      message: '消息'
+      common_config: '公共配置'
+      follow_task: '关注任务'
+      share_task: '分享任务'
+      withdraw: '提现记录'
+      app: '应用'
+      studio: '工作室'
+      app_task: '任务'
+    attributes:
+      user:
+        mobile: "手机"
+        nickname: "昵称"
+        avatar: "头像"
+        # signature: "个性签名"
+        password: "密码"
+        password_confirmation: "确认密码"
+        verified: "是否启用"
+        private_token: "Token"
+        created_at: "注册时间"
+        bean: "益豆"
+        mac_addr: "MAC地址"
+        wifi_length: "WIFI上网时长"
+        nb_code: "邀请码"
+      withdraw:
+        bean: '提现益豆'
+        fee: '手续费（益豆）'
+        state: '状态'
+        user_id: '用户'
+        account_name: '账户名'
+        account_num: '账号'
+        account_type: '提现类型'
+        created_at: '申请时间'
+      app_version:
+        os: '系统'
+        version: '版本号'
+        changelog: '版本更新描述'
+        file: '安装包文件'
+        must_upgrade: '该版本是否必须升级'
+        mode: '该版本所用环境'
+        opened: '是否打开'
+      follow_task:
+        icon: '公众号图标'
+        gzh_name: '公众号名字'
+        gzh_id: '公众号ID'
+        gzh_intro: '公众号简介'
+        earn: '奖励积分'
+        task_tip: '关注攻略'
+        dev_secret: '回调密钥'
+        opened: '是否开启任务'
+        sort: '显示顺序'
+        task_id: '任务ID'
+      share_task:
+        icon: '图标'
+        title: '标题'
+        earn: '奖励积分'
+        first_open_earn: '首次打开奖励'
+        quantity: '总阅读数'
+        visit_count: '已阅读数'
+        link: '内容地址'
+        share_content: '分享内容'
+        share_link: '分享链接'
+        share_icon: '分享图片'
+        sort: '显示顺序'
+        opened: '是否开启任务'
+        task_id: '任务ID'
+        dev_secret: '回调密钥'
+      page:
+        title: '标题'
+        body:  '内容'
+        slug:  '文档标识'
+      common_config:
+        key: '配置名'
+        value: '配置值'
+        description: '配置说明'
+      message:
+        title: '标题'
+        content: '内容'
+        to: '用户'
+        read_at: '已读时间'
+        created_at: '创建时间'
+      site_config:
+        key: "配置名称"
+        value: "配置值"
+        description: "配置说明"
+      admin:
+        email: "邮箱"
+        password: "密码"
+        current_password: "旧密码"
+        password_confirmation: "确认密码"
+        current_sign_in_at: "最新登录时间"
+        sign_in_count: "登录次数"
+        created_at: "创建时间"
+        role: "角色"
+      apartment:
+        images: "小区图片"
+        name: "小区名字"
+        model: "户型"
+        deco_info: '装修情况'
+        area: "面积"
+        rental: "租金"
+        room_type: "房间"
+        sex_limit: "性别"
+        title: "标题"
+        body: "描述"
+        u_name: "联系人"
+        u_mobile: "手机"
+        rent_type: "出租类型"
+        location: "小区位置"
+        address: "小区地址"
+        hide_mobile: "是否隐藏手机号"
+        approved: "是否审核"
+        facilities: '配套设施'
+      payout:
+        money: '提现金额'
+        card_no: '提现账号'
+        card_name: '账号姓名'
+        fee: '手续费'
+        #payed: '是否支付'
+        payed_at: '支付时间'
+      pay_history:
+        money: '金额'
+        fee: '手续费'
+        pay_name: '交易名称'
+        pay_type: '交易类型'
+      checkin:
+        user_id: '用户'
+        location: '位置'
+        earn: '获得益豆'
+        created_at: '签到时间'
+      earn_log:
+        title: '收益标题'
+        earn: '获得益豆'
+        udid: '设备ID'
+        model: '设备名'
+        os_version: '系统版本'
+        platform: '设备平台'
+        screen_size: '屏幕分辨率'
+        app_version: 'App版本号'
+        country_language: '国家语言'
+        ip_addr: '设备IP'
+        network_type: '网络类型'
+        is_broken: '是否越狱'
+        created_at: '收益时间'
+      app_type:
+        name: '类型名称'
+        parent_id: '父级分类'
+        parent: '分类目录'
+        icon: '图标'
+        sort: '显示顺序'
+        opened: '是否使用'
+      product:
+        title: '商品标题'
+        body: '商品详情'
+        image: '商品图片'
+        price: '价格'
+        sku: '商品编号'
+        stocks_count: '库存'
+        sort: '显示顺序'
+        is_virtual_goods: '是否虚拟商品'
+        on_sale: '是否上架'
+        orders_count: '订单数'
+        visit_count: '浏览数'
+        merchant_id: '所属供应商'
+        node_ids: '所属类别'
+        product_mode_id: '产品模式'
+      node:
+        name: '类别名称'
+        sort: '显示顺序'
+      product_mode:
+        name: '模式名'
+        sort: '显示顺序'
+        need_user_input: '是否需要用户输入信息'
+      user_input_config:
+        input_label: '配置标题'
+        input_placeholder: '输入文本提示'
+      app:
+        name: '应用名'
+        icon: '应用ICON'
+        app_size: '应用大小'
+        appstore_url: '商店地址'
+        app_id: '应用ID'
+        bundle_id: 'Bundle ID'
+        url_scheme: 'URL Scheme'
+        version: '应用版本号'
+        os: '系统平台'
+        devices: '设备平台'
+        rank: '应用商店排名'
+        app_price: '应用价格'
+      app_task:
+        name: '任务名称'
+        keywords: '关键字'
+        task_steps: '任务步骤'
+        price: '真实用户价格'
+        st_price: '工作室价格'
+        put_in_count: '用户任务量'
+        st_put_in_count: '工作室任务量'
+        grab_count: '用户完成量'
+        st_grab_count: '工作室完成量'
+        start_time: '任务开始时间'
+        end_time: '任务结束时间'
+        task_id: '任务ID'
+        app: '所属应用'
+        app_id: '所属应用'
+        sort: '显示顺序'
+        special_price: '专属任务或非100%奖励价格'
+      studio:
+        name: '工作室名称'
+        intro: '工作室介绍'
+        address: '工作室地址'
+        contact_name: '联系人'
+        contact_number: '联系电话'
+        studio_id: '工作室ID'
+        balance: '余额'
+        earnings: '总收益'
+      stock:
+        name: '产品库存名'
+        outgoing: '是否出库'
+        product_id: '所属产品'
+        product: '所属产品'
+      merchant:
+        name: '名称'
+        mobile: '联系电话'
+        address: '地址'
+        note: '备注'
+      shipment:
+        name: '姓名'
+        mobile: '手机'
+        address: '收货地址'
+        user_id: '所属用户'
+      order:
+        order_no: '订单号'
+        quantity: '数量'
+        total_fee: '总额'
+        state: '订单状态'
+        created_at: '下单时间'
+        note: '备注'
+      channel:
+        name: '渠道名称'
+        support_os: '支持系统'
+        title: '渠道简介'
+        subtitle: '渠道描述'
+        sort: '显示顺序'
+        ios_app_name: '应用名称'
+        ios_app_id: '应用APPID'
+        ios_app_secret: '对接密钥'
+        ios_other: '其它选项'
+        android_app_name: '应用名称'
+        android_app_id: '应用APPID'
+        android_app_secret: '对接密钥'
+        android_other: '其它选项'
+        user_param: '用户参数'
+        point_param: '积分参数'
+        app_id_param: '应用标识参数'
+        app_name_param: '应用名称参数'
+        ip_param: '渠道回调验证IP'
+        success_return: '渠道回调成功返回'
+        fail_return: '渠道回调失败返回'
+        opened: '是否打开'
+      ad_task:
+        title: '广告标题'
+        subtitle: '广告子标题'
+        cover_image: '广告封面图'
+        ad_contents: '广告文件'
+        location: '广告位置'
+        location_str: '广告位置坐标'
+        price: '用户浏览收益'
+        share_price: '用户分享收益'
+        ad_type: '广告类型'
+        ad_link: '网页广告地址'
+        expired_on: '广告过期日期'
+        sort: '显示顺序'
+        owner_id: '所属商家'
+        
+    errors:
+      models:
+        user: "用户"
+        admin: "管理员"
+        category: "类别"
+      messages:
+        inclusion: "不包含于列表中"
+        exclusion: "是保留关键字"
+        invalid: "是无效的"
+        confirmation: "与确认值不匹配"
+        accepted: "必须是可被接受的"
+        empty: "不能留空"
+        blank: "不能为空字符"
+        too_long: "过长（最长为 %{count} 个字符）"
+        too_short: "过短（最短为 %{count} 个字符）"
+        wrong_length: "长度非法（必须为 %{count} 个字符）"
+        taken: "已经被使用"
+        not_a_number: "不是数字"
+        not_an_integer: "必须是整数"
+        greater_than: "必须大于 %{count}"
+        greater_than_or_equal_to: "必须大于或等于 %{count}"
+        equal_to: "必须等于 %{count}"
+        less_than: "必须小于 %{count}"
+        less_than_or_equal_to: "必须小于或等于 %{count}"
+        odd: "必须为单数"
+        even: "必须为双数"
+        record_invalid: "校验失败: %{errors}"
+        taken:
+          已占用
+        document_not_found:
+          没有发现类是 %{klass} ID 是 %{identifiers} 的文档
+        invalid_database:
+          数据库应该是Mongo::DB,而不是%{name}.
+        invalid_type:
+          在类%{klass}中定义了字段,实际值是%{value}的%{other}.
+        unsupported_version:
+          MongoDB %{version} 版本已过期，请升级到 %{mongo_version}.
+        validations:
+          校验失败 - %{errors}.
+        invalid_collection:
+          不允许直接访问嵌入式的集合%{klass} , 请从文档的根访问集合.
+        invalid_field:
+          字段的名字不允许为 %{name}. 你不应该定义跟Mongoid内部属性或者方法相同的名字，详细请看Use Document#instance_methods.
+        too_many_nested_attribute_records:
+          被关联的%{association} 嵌入式属性不能超过 %{limit}.
+        embedded_in_must_have_inverse_of:
+          embedded_in的关联属性必须包含inverse_of.
+        dependent_only_references_one_or_many:
+          dependent => destroy|delete 选项只有在references_one或者references_many时候有效.
+        association_cant_have_inverse_of:
+          在当前的关联中，不允许定义inverse_of去,其只有在embedded_in或者references_many是数组的情况下使用
+        unsaved_document:
+          You cannot call create or create! through a relational association
+          relation (%{document}) who's parent (%{base}) is not already saved.

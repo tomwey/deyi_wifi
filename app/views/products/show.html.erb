@@ -1,0 +1,14 @@
+<% content_for :styles do %>
+  <%= stylesheet_link_tag 'products' %>
+<% end %>
+<div class="products">
+  <%= image_tag @product.image.url(:large), class: 'img-responsive' %>
+  <div class="container">
+    <h2 class="title"><%= @product.title %></h2>
+    <p class="price red"><%= @product.price %><span class="unit">益豆</span></p>
+    <div class="summary">
+      <h2 class="caption">商品介绍</h2>
+      <%= raw @product.body %>
+    </div>
+  </div>
+</div>

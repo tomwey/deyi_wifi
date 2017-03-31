@@ -1,0 +1,56 @@
+<% content_for :styles do %>
+  <%= stylesheet_link_tag 'follow_task' %>
+<% end %>
+
+<div class="task-row base-info">
+  <div class="container">
+    <table>
+      <tr>
+        <td><%= image_tag @task.icon.url(:large), size: '48x48', class: 'img-circle' %></td>
+        <td>
+          <div class="text-info">
+            <h2>关注<%= @task.gzh_name %>微信</h2>
+            <p>总奖励：<span class="red"><%= @task.earn %>益豆</span></p>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="container">
+  <div class="tip-box">
+    <p>关注“<%= @task.gzh_name %>”微信号：<%= @task.gzh_id %>，回复<span class="red"><%= @user.nb_code %></span>给<%= @task.gzh_name %>微信公众号</p>
+  </div>
+</div>
+
+<div class="task-row detail-info">
+  <div class="container">
+    <div class="step-item">
+      <p class="gray-text"><span class="order">1</span><span class="tip-text">关注<%= @task.gzh_name %>微信号</span></p>
+      <p class="copy-id"><%= @task.gzh_id %></p>
+      <p class="help-text">复制或手动输入，完成微信关注</p>
+    </div>
+    
+    <div class="step-item">
+      <p class="gray-text"><span class="order">2</span><span class="tip-text">回复你的ID给“<%= @task.gzh_name %>”微信公众号，获取<span class="red"><%= @task.earn %>益豆</span>奖励（首次关注有效）</span></p>
+      <p class="copy-id"><%= @user.nb_code %></p>
+      <p class="help-text">复制或手动输入，成功回复ID</p>
+    </div>
+  </div>
+</div>
+
+<div class="notice">
+  <div class="container">
+    <p>[<span class="red">注意事项</span> 若您的手机之前已关注过“<%= @task.gzh_name %>”微信则无法获得奖励]</p>
+  </div>
+</div>
+
+<div class="task-tip container">
+  <p class="text">
+    <span class="black">关注攻略：</span>在手机上，通过微信的“添加朋友”功能，添加微信账号：<%= @task.gzh_id %>。关注成功后回复<span class="red"><%= @user.nb_code %></span>给<%= @task.gzh_name %>微信公众号！
+  </p>
+  
+  <%= raw @task.task_tip %>
+</div>
+

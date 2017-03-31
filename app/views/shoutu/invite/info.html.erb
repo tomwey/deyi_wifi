@@ -1,0 +1,33 @@
+<% content_for :styles do %>
+  <%= stylesheet_link_tag 'shoutu' %>
+<% end %>
+<div class="container">
+  <div class="tip-header">
+    <%= raw @tip_header %>
+  </div>
+  
+  <div class="invite-earn-info">
+    <ul class="total-earn clearfix hairlines">
+      <li class="total-earn-item vertical-line">
+        <div class="inner-item">
+          <h2 class="digit"><%= @total_share_earn %></h2>
+          <p class="muted">累计学徒奖励</p>
+        </div>
+      </li>
+      <li class="total-earn-item">
+        <div class="inner-item">
+          <h2 class="digit"><%= @total_invited_users_count %></h2>
+          <p class="muted">徒弟数量</p>
+        </div>
+      </li>
+    </ul>
+    <div class="today-earn">
+      <p class="muted">今日收徒<span class="small-digit"><%= @today_invited_users_count %></span>名，合计奖励<span class="small-digit"><%= @today_total_share_earn %></span>益豆</p>
+    </div>
+  </div>
+  
+  <div class="invite-earn-help">
+    <%= raw @tip_body %>
+  </div>
+  
+</div>

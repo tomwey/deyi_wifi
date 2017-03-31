@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="wifi-sign">
+    <%= form_tag wifi_dog_register_path, class: 'form-signin' do %>
+    
+      <h2 class="form-signin-heading">注册成功后可以连得益WIFI</h2>
+      <label for="inputEmail" class="sr-only">手机</label>
+      <input type="text" id="inputEmail" name="mobile" class="form-control" placeholder="手机" required autofocus>
+      <label for="inputEmail" class="sr-only">验证码</label>
+      <input type="text" id="inputEmail" name="code" class="form-control" placeholder="验证码" required autofocus>
+      <label for="inputPassword" class="sr-only">密码</label>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="密码" required>
+      
+      <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+      
+    <% end %>
+  </div>
+</div>

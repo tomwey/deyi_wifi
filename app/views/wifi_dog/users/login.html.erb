@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="wifi-login">
+    <%= form_tag wifi_dog_sign_in_path, class: 'form-signin' do %>
+    
+      <h2 class="form-signin-heading">登录成功后可以连得益WIFI</h2>
+      <label for="inputEmail" class="sr-only">手机</label>
+      <input type="text" id="inputEmail" name="mobile" class="form-control" placeholder="手机" required autofocus>
+      <label for="inputPassword" class="sr-only">密码</label>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="密码" required>
+            
+      <%= hidden_field_tag :gw_id, params[:gw_id] %>
+      <%= hidden_field_tag :gw_address, params[:gw_address] %>
+      <%= hidden_field_tag :gw_port, params[:gw_port] %>
+      
+      <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+      
+      <%= link_to "注册得益WIFI账号", wifi_dog_signup_path, class: 'btn btn-lg btn-success btn-block' %>
+    <% end %>
+  </div>
+</div>

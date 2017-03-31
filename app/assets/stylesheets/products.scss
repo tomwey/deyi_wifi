@@ -1,0 +1,35 @@
+body {
+  background-color: white;//rgb(242,246,246);
+}
+
+.products {
+  .title {
+    margin: 15px 0;
+    font-weight: normal;
+    font-size: 1.2em;
+  }
+  .price {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
+    color: red;
+    .unit {
+      font-size: .7em;
+      padding-left: 3px;
+//      font-weight: normal;
+    }
+  }
+  
+  .summary {
+    margin-top: 30px;
+    .caption {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+    img {
+      max-width: 100%;
+      border: 0;
+      margin-bottom: 10px;
+    }
+  }
+}

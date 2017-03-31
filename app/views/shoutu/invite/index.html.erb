@@ -1,0 +1,66 @@
+<% content_for :styles do %>
+  <%= stylesheet_link_tag 'shoutu' %>
+<% end %>
+
+<div class="download-info">
+  <div class="inviter-info">
+    <div class="container">
+      <table>
+        <tr><td><div class="user-avatar">
+              <%= image_tag @user.real_avatar_url, size: '48x48', class: 'img-circle' %>
+            </div></td>
+            
+<td><div class="invite-tip">
+
+                  我是<span class="user-name"><%= @user.nickname || @user.hack_mobile %></span>，我玩<span class="app-name"><%= CommonConfig.app_name %></span>已经<span class="play-days"><%= @play_days %></span>天了，邀请你一起来赚钱！完全免费！邀请码是：<span class="invite-code"><%= @user.nb_code %></span>
+      
+                </div></td>
+        
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="app-info">
+    <h1 class="caption"><%= CommonConfig.app_name %></h1>
+    <p class="summary"><%= CommonConfig.app_intro || '用得益，更得意' %></p>
+  </div>
+  <div class="download-link">
+    <a href="<%= CommonConfig.app_download_url %>">下载</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="top-3-earn-users">
+    <h2 class="user-rank-header">
+      赚钱达人排行榜
+    </h2>
+    <table>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= image_tag user.real_avatar_url, size: '48x48', class: 'img-circle' %></td>
+        <td class="user-info">
+          <p class="user-name"><%= user.nickname || user.hack_mobile %></p>
+          <p class="earn-info">共赚<span class="digit"><%= user.bean %></span>益豆</p>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+  
+  <div class="latest-10-earn-history">
+    <% @earn_logs.each do |log| %>
+    <div class="earn-item clearfix">
+      <div class="user-avatar">
+        <%= image_tag log.user.real_avatar_url, size: '48x48', class: 'img-circle' %>
+      </div>
+      <div class="earn-log-info">
+        <p class="common-text"><%= log.user.try(:nickname) || log.user.try(:hack_mobile) %></p>
+        <p class="earn-time"><%= time_ago_in_words(log.created_at) %></p>
+        <p class="common-text earn-detail">
+          <%= log.subtitle %>
+        </p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<%= form_for [:admin, @page] do |f| %>
+  <div style="width: 80%; margin-bottom: 20px;">
+    <%= f.label :title, '*标题' %><br>
+    <%= f.text_field :title %>
+  </div>
+  
+  <div style="width: 80%; margin-bottom: 20px;">
+    <%= f.label :slug, '*链接地址' %><br>
+    <%= f.text_field :slug %>
+  </div>
+  
+  <div style="width: 80%; margin-bottom: 20px;">
+    <%= f.label :body, '*内容' %>
+    <%= text_area_tag :body,  @page.body, name: 'page[body]', :class => "redactor", :rows => 40, :cols => 120 %>
+  </div>
+  
+  <%= f.submit '提交' %>
+<% end %>
+
+<!--script>
+$(document).ready(
+function() {
+  var createStorageKey, host, uploadAttachment;
+
+  document.addEventListener("trix-attachment-add", function(event) {
+    var attachment;
+    attachment = event.attachment;
+    if (attachment.file) {
+      return uploadAttachment(attachment);
+    }
+  });
+
+  host = "<%= request.protocol %><%= request.host %><%= request.port == 80 ? '' : ':' + request.port.to_s %>";//"https://d13txem1unpe48.cloudfront.net/";
+
+  uploadAttachment = function(attachment) {
+    var file, form, key, xhr;
+    file = attachment.file;
+    key = createStorageKey(file);
+    form = new FormData;
+    form.append("key", key);
+    form.append("Content-Type", file.type);
+    form.append("file", file);
+    xhr = new XMLHttpRequest;
+    xhr.open("POST", host + '/api/v1/attachments', true);
+    xhr.upload.onprogress = function(event) {
+      var progress;
+      progress = event.loaded / event.total * 100;
+      return attachment.setUploadProgress(progress);
+    };
+    xhr.onload = function() {
+      var href, url;
+      if (xhr.status === 201) {
+        var result = JSON.parse(xhr.responseText);
+        url = href = result.file_url;
+        return attachment.setAttributes({
+          url: url,
+          href: href
+        });
+      }
+    };
+    return xhr.send(form);
+  };
+
+  createStorageKey = function(file) {
+    var date, day, time;
+    date = new Date();
+    day = date.toISOString().slice(0, 10);
+    time = date.getTime();
+    return "tmp/" + day + "/" + time + "-" + file.name;
+  };
+
+});
+</script-->

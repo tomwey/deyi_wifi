@@ -1,0 +1,45 @@
+// SASS variable overrides must be declared before loading up Active Admin's styles.
+//
+// To view the variables that Active Admin provides, take a look at
+// `app/assets/stylesheets/active_admin/mixins/_variables.scss` in the
+// Active Admin source.
+//
+// For example, to change the sidebar width:
+// $sidebar-width: 242px;
+
+/*
+ *= require redactor-rails
+ *= redactor-rails/plugins
+ */
+
+// Active Admin's got SASS!
+@import "active_admin/mixins";
+@import "active_admin/base";
+
+// Overriding any non-variable SASS must be done after the fact.
+// For example, to change the default status-tag color:
+//
+//   .status_tag { background: #6090DB; }
+
+.dropzone{
+  border: dashed 1px #666;
+  width: 600px;
+  padding: 30px 10px 30px 10px;
+  margin-bottom: 20px;
+}
+
+a.member_link, .table_actions a {
+  padding: 5px 10px;
+  border: 1px solid;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.table_actions a {
+  margin-right: 10px;
+}
+
+.redactor-box {
+  width: 79.9%;
+  margin-left: 20%;
+}

@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="app-changelog">
+    <%= raw @app.changelog %>
+  </div>
+  <% if @app.file %>
+  <div class="app-download">
+    <%= link_to '立即升级', @app.file.url, class: 'btn btn-lg btn-danger' %>
+  </div>
+  <% end %>
+</div>

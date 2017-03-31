@@ -1,0 +1,119 @@
+<div class="dropzone" id="dropzone">
+  <%= qiniu_uploader_form callback_url: videos_path,
+    bucket:        'zgnytv',
+    id:            "photograph-uploader",
+    key:           "uploads/video/#{SecureRandom.uuid}.mp4",
+    custom_fields: {aaa:1,bbb:2},
+    progress_bar_id: 'progress-bar',
+    drop_paste_zone_id: 'dropzone' do %>
+    
+    <div class="bars" id="progress-bar" style="margin-bottom: 20px;">
+      <%= label_tag '*视频文件' %><br>
+      <%= file_field_tag :file, accept: "video/mp4, video/mov, video/mpg, video/mpeg" %> <!-- You can also drag and drop files here -->
+    </div>
+  <% end %>
+</div>
+
+<%= form_for [:admin, @video] do |f| %>
+  
+  <div style="width: 80%; margin-bottom: 20px;">
+    <%= f.label :category_id, '所属类别' %><br>
+    <%= f.select :category_id, Category.no_delete.opened.map { |category| [category.name, category.id] }, { prompt: '-- 请选择类别 --' }  %>
+  </div>
+
+  <div style="width: 80%; margin-bottom: 20px;">
+    <%= f.label :title, '*视频标题' %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div style="width: 80%; margin-bottom: 20px;">
+    <%= f.label :cover_image, '*视频封面图' %><br>
+    <%= f.file_field :cover_image %>
+  </div>
+  
+  <% if not f.object.new_record? %>
+  <div style="width: 80%; margin-bottom: 20px;">
+    <%= f.label :likes_count, '点赞数' %><br>
+    <%= f.text_field :likes_count %>
+  </div>
+  <% end %>
+  
+  <!--div style="width: 80%; margin-bottom: 20px;">
+    <%= f.label :file, '*视频文件' %><br>
+    <%= f.file_field :file %>
+  </div-->
+    <%= f.hidden_field :file, value: f.object.file %>
+  
+  <div style="width: 80%; margin-bottom: 20px;">
+    <%= f.label :body, '视频简介' %>
+    <%= text_area_tag :body,  @video.body, name: 'video[body]', :class => "redactor", :rows => 40, :cols => 120 %>
+  </div>
+  
+  <div style="width: 80%; margin-bottom: 20px;">
+    <%= f.label :sort %><br>
+    <%= f.text_field :sort %>
+  </div>
+  
+  <%= f.submit '提交' %>
+<% end %>
+
+<script id="template-upload" type="text/x-tmpl">
+  <div class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>
+
+<!--script>
+$(document).ready(
+function() {
+  var createStorageKey, host, uploadAttachment;
+
+  document.addEventListener("trix-attachment-add", function(event) {
+    var attachment;
+    attachment = event.attachment;
+    if (attachment.file) {
+      return uploadAttachment(attachment);
+    }
+  });
+
+  host = "<%= request.protocol %><%= request.host %><%= request.port == 80 ? '' : ':' + request.port.to_s %>";//"https://d13txem1unpe48.cloudfront.net/";
+
+  uploadAttachment = function(attachment) {
+    var file, form, key, xhr;
+    file = attachment.file;
+    key = createStorageKey(file);
+    form = new FormData;
+    form.append("key", key);
+    form.append("Content-Type", file.type);
+    form.append("file", file);
+    xhr = new XMLHttpRequest;
+    xhr.open("POST", host + '/api/v1/attachments', true);
+    xhr.upload.onprogress = function(event) {
+      var progress;
+      progress = event.loaded / event.total * 100;
+      return attachment.setUploadProgress(progress);
+    };
+    xhr.onload = function() {
+      var href, url;
+      if (xhr.status === 201) {
+        var result = JSON.parse(xhr.responseText);
+        url = href = result.file_url;
+        return attachment.setAttributes({
+          url: url,
+          href: href
+        });
+      }
+    };
+    return xhr.send(form);
+  };
+
+  createStorageKey = function(file) {
+    var date, day, time;
+    date = new Date();
+    day = date.toISOString().slice(0, 10);
+    time = date.getTime();
+    return "tmp/" + day + "/" + time + "-" + file.name;
+  };
+
+});
+</script-->
