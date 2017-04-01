@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get '/auth'   => 'wifi#auth',   as: :wifi_auth
     get '/ping'   => 'wifi#ping',   as: :wifi_ping
     get '/portal' => 'wifi#portal', as: :wifi_portal
+    get '/gw_message' => 'wifi#gw_message', as: :wifi_gw_message
     
     # connect?access_token=xxxxxxx
     get '/connect' => 'wifi#connect', as: :wifi_connect

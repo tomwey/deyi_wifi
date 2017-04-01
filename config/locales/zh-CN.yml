@@ -4,54 +4,15 @@
     admin: '管理员'
     site_editor: '站点编辑'
     marketer: '市场人员'
-    pending: '待处理'
-    paid: '待配送'
-    shipping: '配送中'
-    canceled: '已取消'
-    completed: '已完成'
-    processing: '处理中'
-    channel: '联盟任务收益'
-    checkin: '签到收益'
-    follow_task: '关注收益'
-    share_task: '分享收益'
-    ad_task: '浏览广告收益'
-    invite_earn: '收徒收益'
   activerecord:
     models:
       user: "用户"
       admin: "管理员"
       cpanel: '后台系统' # 此处并不存在真正意义的model，只是为了后台系统的面包屑导航根地址国际化成中文
-      access_point: 'WIFI热点'
-      category: "类别"
-      banner: "广告"
+      
       site_config: "站点配置"
-      feedback: "意见反馈"
-      search: '搜索记录'
       page: '文档'
-      payout: '提现'
-      pay_history: '交易明细'
-      checkin: '签到'
-      earn_log: '收益明细'
-      app_type: 'APP类型'
-      app_version: 'App版本'
-      product: '产品'
-      node: '产品类别'
-      stock: '产品库存'
-      product_mode: '产品模式'
-      user_input_config: '产品模式配置'
-      merchant: '供应商'
-      shipment: '收货地址'
-      order: '订单'
-      channel: '积分墙渠道'
-      ad_task: '商家广告'
-      message: '消息'
-      common_config: '公共配置'
-      follow_task: '关注任务'
-      share_task: '分享任务'
-      withdraw: '提现记录'
-      app: '应用'
-      studio: '工作室'
-      app_task: '任务'
+      merchant: '商家'
     attributes:
       user:
         mobile: "手机"
