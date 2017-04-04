@@ -1,5 +1,5 @@
 class AccessPoint < ActiveRecord::Base
-  validates :ssid, :gw_mac, :gw_address, :gw_port, :merchant_id, presence: true
+  validates :ssid, :gw_mac, :merchant_id, presence: true
   belongs_to :merchant
   
   before_create :generate_unique_id

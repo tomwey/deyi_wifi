@@ -1,2 +1,4 @@
 <p>客户端Mac: <%= params[:mac] %></p>
 <%= image_tag 'weixin-auth.jpg' %>
+
+<%= link_to '立即上网', wifi_connect_path(bssid: @ap.gw_mac, mac: @client.mac) %>

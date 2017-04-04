@@ -2,20 +2,22 @@ Rails.application.routes.draw do
   # mount RedactorRails::Engine => '/redactor_rails'
   
   # 网页文档
-  resources :pages, path: :p, only: [:show]
-    
+  # resources :pages, path: :p, only: [:show]
+  
   # WIFI认证系统
   namespace :wifi, path: '' do
     # 客户端首次连接wifi，浏览器请求将被重定向到login并携带参数
     # login?gw_address=路由器ip&gw_port=路由器wifidog的端口&gw_id=用户id&mac=用户的mac地址&url=被重定向前用户浏览的地址
-    get '/login'  => 'wifi#login',  as: :wifi_login
-    get '/auth'   => 'wifi#auth',   as: :wifi_auth
-    get '/ping'   => 'wifi#ping',   as: :wifi_ping
-    get '/portal' => 'wifi#portal', as: :wifi_portal
-    get '/gw_message' => 'wifi#gw_message', as: :wifi_gw_message
+    get '/login'  => 'wifi#login',  as: :login
+    get '/auth'   => 'wifi#auth',   as: :auth
+    get '/ping'   => 'wifi#ping',   as: :ping
+    get '/portal' => 'wifi#portal', as: :portal
+    get '/gw_message' => 'wifi#gw_message', as: :gw_message
     
     # connect?access_token=xxxxxxx
-    get '/connect' => 'wifi#connect', as: :wifi_connect
+    get '/connect' => 'wifi#connect', as: :connect
+    
+    post '/control86' => 'wifi#control86', as: :control86
   end
   # namespace :wifi_dog, path: '' do
   #   # get '/login'  => 'users#login',  as: :login
