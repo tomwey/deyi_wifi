@@ -59,8 +59,8 @@ class Wifi::WifiController < ApplicationController
             puts "login: 认证成功"
             auth = 1
           end
-        when 'counter'
-          puts "counter"
+        when 'counters'
+          puts "counters"
           if !conn.closed?
             if !conn.expired?
               auth = 1
