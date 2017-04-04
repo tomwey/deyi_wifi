@@ -85,8 +85,6 @@ gem 'cancancan'#, '~> 1.10'
 # YAML 配置信息
 gem 'settingslogic'
 
-gem 'thin'
-
 # 消息推送
 gem 'jpush'
 
@@ -147,6 +145,8 @@ group :development do
   # Better Errors
   gem 'better_errors'
   gem 'binding_of_caller'
+  
+  gem 'thin'
 end
 
 
