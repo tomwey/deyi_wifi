@@ -61,6 +61,15 @@ class Wifi::WifiController < ApplicationController
           end
         when 'counters'
           # /auth/?stage=counters&ip=192.168.8.12&gw_mac=00:f3:d2:09:03:c0&mac=44:6e:e5:9c:a0:45&token=0sdvfkLpObA9Pq_g0oph2Q&incoming=0&outgoing=0&gw_id=00F3D20903C0
+          
+          # 判断当前用户是否已经切换了wifi或者说没有使用我们的wifi
+          incoming = params[:incoming].to_i
+          outgoing = params[:outgoing].to_i
+          if incoming == 0 && outgoing == 0
+            puts 'counter: 用户已经切换了wifi或系统关闭了wifi'
+            conn.close!
+          end
+          
           puts "counters"
           if !conn.closed?
             if !conn.expired?
