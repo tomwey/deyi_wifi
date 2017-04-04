@@ -110,6 +110,12 @@ class Wifi::WifiController < ApplicationController
   # 认证成功
   def portal
     # /portal/?gw_id=00F3D20903C0&mac=44:6e:e5:9c:a0:45&auth_result=successed&gw_mac=00:f3:d2:09:03:c0
+    @ap = AccessPoint.find_by(gw_mac: params[:gw_mac])
+    if @ap.blank?
+      render status: :forbidden
+      return
+    end
+    
     render text: '可以上网了'
   end
   
@@ -145,7 +151,7 @@ class Wifi::WifiController < ApplicationController
     @client.close_all_connections!
     
     # 创建一个新的连接
-    @conn = Connection.create!(access_point_id: @ap.id, client_id: @client.id, expired_at: Time.zone.now + 1.minutes)
+    @conn = Connection.create!(access_point_id: @ap.id, client_id: @client.id, expired_at: Time.zone.now + wifi_length.minutes)
     
     # 向路由器网关注册上网
     redirect_to "http://#{@ap.gw_address}:#{@ap.gw_port}/wifidog/auth?token=#{@conn.token}"
