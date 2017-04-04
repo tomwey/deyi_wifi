@@ -139,6 +139,7 @@ class Wifi::WifiController < ApplicationController
     
     # 从ap获取本次上网的网时长度，单位为分钟
     wifi_length = (CommonConfig.test_wifi_length || 3).to_i # 真实环境下面是从广告系统里面去获得一个该广告主对应的上网时长
+    puts wifi_length.to_s
     
     # 关闭当前用户的所有连接
     @client.close_all_connections!
