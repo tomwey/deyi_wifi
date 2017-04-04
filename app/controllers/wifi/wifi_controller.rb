@@ -60,6 +60,7 @@ class Wifi::WifiController < ApplicationController
             auth = 1
           end
         when 'counters'
+          # /auth/?stage=counters&ip=192.168.8.12&gw_mac=00:f3:d2:09:03:c0&mac=44:6e:e5:9c:a0:45&token=0sdvfkLpObA9Pq_g0oph2Q&incoming=0&outgoing=0&gw_id=00F3D20903C0
           puts "counters"
           if !conn.closed?
             if !conn.expired?
@@ -91,6 +92,7 @@ class Wifi::WifiController < ApplicationController
   end
   
   # /ping/?gw_id=00F3D20903C0&sys_uptime=10465&wifidog_uptime=32&check_time=600&wmac=00:f3:d2:09:03:c0&wip=192.168.0.12&pid=&sv=Build2016060611&wan_ip=192.168.0.12&sys_memfree=762340&client_count=1&sys_load=0.05&gw_address=192.168.8.1&router_type=JIKE-X86&gw_mac=00:f3:d2:09:03:c0
+  # /ping/?gw_id=00F3D20903C0&sys_uptime=27573&wifidog_uptime=27511&check_time=120&wmac=00:f3:d2:09:03:c0&wip=192.168.0.12&pid=&sv=Build2016060611&wan_ip=192.168.0.12&sys_memfree=767540&client_count=1&sys_load=0.03&gw_address=192.168.8.1&router_type=JIKE-X86&gw_mac=00:f3:d2:09:03:c0
   def ping
     @ap = AccessPoint.find_by(gw_mac: params[:gw_mac])
     if @ap.present?
@@ -107,6 +109,7 @@ class Wifi::WifiController < ApplicationController
   
   # 认证成功
   def portal
+    # /portal/?gw_id=00F3D20903C0&mac=44:6e:e5:9c:a0:45&auth_result=successed&gw_mac=00:f3:d2:09:03:c0
     render text: '可以上网了'
   end
   
@@ -135,7 +138,7 @@ class Wifi::WifiController < ApplicationController
     end
     
     # 从ap获取本次上网的网时长度，单位为分钟
-    wifi_length = 1 # 真实环境下面是从广告系统里面去获得一个该广告主对应的上网时长
+    wifi_length = (CommonConfig.test_wifi_length || 3).to_i # 真实环境下面是从广告系统里面去获得一个该广告主对应的上网时长
     
     # 关闭当前用户的所有连接
     @client.close_all_connections!
